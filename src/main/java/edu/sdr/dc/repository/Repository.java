@@ -1,7 +1,5 @@
 package edu.sdr.dc.repository;
 
-import edu.sdr.dc.model.Rate;
-
 public interface Repository<T> {
 
     // select ...
