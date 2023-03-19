@@ -1,5 +1,6 @@
 package edu.sdr.dc.repository;
 
+import edu.sdr.dc.model.Book;
 import edu.sdr.dc.model.Currency;
 import edu.sdr.dc.model.Rate;
 
