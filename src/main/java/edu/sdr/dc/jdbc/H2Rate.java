@@ -1,5 +1,6 @@
 package edu.sdr.dc.jdbc;
 
+import edu.sdr.dc.model.Currency;
 import edu.sdr.dc.model.Rate;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -79,22 +80,22 @@ public class H2Rate {
             for(int date = 10; date < 30; date++) {
                 List<Rate> rateList = new LinkedList<>();
                 String dateString = "2023-03-" + date;
-                rateList.add(new Rate(dateString, "AED", "1.2599"));
-                rateList.add(new Rate(dateString, "AUD", "3.0962"));
-                rateList.add(new Rate(dateString, "BGN", "2.5156"));
-                rateList.add(new Rate(dateString, "BRL", "0.8845"));
-                rateList.add(new Rate(dateString, "CAD", "3.3745"));
-                rateList.add(new Rate(dateString, "CHF", "4.9896"));
-                rateList.add(new Rate(dateString, "CNY", "0.6713"));
-                rateList.add(new Rate(dateString, "CZK", "0.2054"));
-                rateList.add(new Rate(dateString, "DKK", "0.6608"));
-                rateList.add(new Rate(dateString, "EGP", "0.1502"));
-                rateList.add(new Rate(dateString, "EUR", "4.9200"));
-                rateList.add(new Rate(dateString, "GBP", "5.6132"));
-                rateList.add(new Rate(dateString, "HUF", "1.2444", 100));
-                rateList.add(new Rate(dateString, "INR", "0.0560"));
-                rateList.add(new Rate(dateString, "JPY", "3.4738", 100));
-                rateList.add(new Rate(dateString, "KRW", "0.3537", 100));
+                rateList.add(new Rate(dateString, new Currency("AED"), "1.2599"));
+                rateList.add(new Rate(dateString, new Currency("AUD"), "3.0962"));
+                rateList.add(new Rate(dateString, new Currency("BGN"), "2.5156"));
+                rateList.add(new Rate(dateString, new Currency("BRL"), "0.8845"));
+                rateList.add(new Rate(dateString, new Currency("CAD"), "3.3745"));
+                rateList.add(new Rate(dateString, new Currency("CHF"), "4.9896"));
+                rateList.add(new Rate(dateString, new Currency("CNY"), "0.6713"));
+                rateList.add(new Rate(dateString, new Currency("CZK"), "0.2054"));
+                rateList.add(new Rate(dateString, new Currency("DKK"), "0.6608"));
+                rateList.add(new Rate(dateString, new Currency("EGP"), "0.1502"));
+                rateList.add(new Rate(dateString, new Currency("EUR"), "4.9200"));
+                rateList.add(new Rate(dateString, new Currency("GBP"), "5.6132"));
+                rateList.add(new Rate(dateString, new Currency("HUF"), "1.2444", 100));
+                rateList.add(new Rate(dateString, new Currency("INR"), "0.0560"));
+                rateList.add(new Rate(dateString, new Currency("JPY"), "3.4738", 100));
+                rateList.add(new Rate(dateString, new Currency("KRW"), "0.3537", 100));
 
                 for(Rate rate : rateList) {
                     String insertStatement = "INSERT INTO rate (date, currency, rate, multiplier) " +

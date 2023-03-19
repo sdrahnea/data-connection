@@ -1,5 +1,6 @@
 package edu.sdr.dc.repository;
 
+import edu.sdr.dc.model.Currency;
 import edu.sdr.dc.model.Rate;
 
 import java.sql.Connection;
@@ -26,7 +27,7 @@ public class RateRepository implements Repository<Rate> {
                 String dateFromTable = rs.getString("date");
                 Integer multiplier = rs.getInt("multiplier");
 
-                rateList.add(new Rate(id, dateFromTable, currency, rate, multiplier));
+                rateList.add(new Rate(id, dateFromTable, new Currency(), rate, multiplier));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -53,5 +54,10 @@ public class RateRepository implements Repository<Rate> {
     @Override
     public Rate save(Integer id, String currency, String rate, String date, Integer multiplier) {
         return null;
+    }
+
+    @Override
+    public void createTable() {
+
     }
 }

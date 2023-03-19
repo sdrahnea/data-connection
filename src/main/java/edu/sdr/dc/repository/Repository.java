@@ -14,4 +14,6 @@ public interface Repository<T> {
     // insert ...
     T save(Integer id, String currency, String rate, String date, Integer multiplier);
 
+    void createTable();
+
 }
