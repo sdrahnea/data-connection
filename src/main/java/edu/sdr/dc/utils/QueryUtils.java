@@ -2,21 +2,24 @@ package edu.sdr.dc.utils;
 
 public class QueryUtils {
 
-    public static String createInsertStatement(String... arg) {
+    public static String createInsertStatement(final String tableName, String... arg) {
 
-        String columns = "";
-        String values = "";
-        if( arg.length > 0) {
-            for(int index = 0; index < arg.length - 1; index += 2){
+        String query = "";
+
+        if (arg.length > 0) {
+            String columns = "";
+            String values = "";
+
+            for (int index = 0; index < arg.length - 1; index += 2) {
                 columns += arg[index] + ", ";
-                values += "'"  + arg[index + 1] + "'" + ", ";
+                values += "'" + arg[index + 1] + "'" + ", ";
             }
+
+            columns = columns.substring(0, columns.length() - 2);
+            values = values.substring(0, values.length() - 2);
+
+            query = "INSERT INTO " + tableName +  "(" + columns + ") VALUES(" + values + ")";
         }
-
-        columns = columns.substring(0, columns.length() - 2);
-        values = values.substring(0, values.length() - 2);
-
-        String query = "INSERT INTO table(" + columns + ") VALUES(" + values + ")";
 
         return query;
     }
