@@ -34,11 +34,10 @@ public class IndexController {
     public String getRatesAsXmlFormat() throws ClassNotFoundException {
         //call a service which will return rates into XML format.
 
-        RateService rateService = new RateService();
-        Class.forName(H2_DRIVER);
-
         String xmlFormat = null;
+        RateService rateService = new RateService();
 
+        Class.forName(H2_DRIVER);
         try (Connection connection = DriverManager.getConnection(H2_DB_URL, H2_DB_USER, H2_DB_PASSWORD)) {
             xmlFormat = rateService.getRatesByDateAsXmlType(connection,"2023-03-17");
         } catch (SQLException e) {

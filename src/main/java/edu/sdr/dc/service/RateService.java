@@ -31,7 +31,7 @@ public class RateService {
                 "\t\t<Cube date=\"" + date + "\">\n";
 
         for(Rate rate : rateList) {
-            xmlFormat +="\t\t\t<Rate currency=\"" + rate.getCurrency() + "\" multiplier=\"" + rate.getMultiplier() + "\">" + rate.getRate() + "</Rate>\n";
+            xmlFormat +="\t\t\t<Rate currency=\"" + rate.getCurrency().getName() + "\" multiplier=\"" + rate.getMultiplier() + "\">" + rate.getRate() + "</Rate>\n";
         }
 
         xmlFormat += "\t\t</Cube>\n" +

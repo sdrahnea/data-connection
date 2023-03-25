@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.hibernate.annotations.BatchSize;
 
 import javax.persistence.*;
+import java.util.Date;
 
 
 @Setter
@@ -24,6 +25,8 @@ public class Book {
     String title;
     String author;
     int pages;
+
+    private EntityInfo entityInfo;
 
     public Book(){}
 

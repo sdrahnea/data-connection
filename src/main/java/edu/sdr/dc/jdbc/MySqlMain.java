@@ -15,7 +15,7 @@ public class MySqlMain {
     private static final String H2_DB_PASSWORD = "password";
 
     private static final String MYSQL_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String MYSQL_DB_URL = "jdbc:mysql://localhost:3306/employee_gr_51";
+    private static final String MYSQL_DB_URL = "jdbc:mysql://localhost:3306/employee_gr_50";
     private static final String MYSQL_DB_USER = "root";
     private static final String MYSQL_DB_PASSWORD = "root";
 
@@ -109,6 +109,7 @@ public class MySqlMain {
         try (Statement deleteItemStatement = connection.createStatement()) {
             String deleteItemQuery = "DELETE FROM employee WHERE id = 2";
             deleteItemStatement.execute(deleteItemQuery);
+
         } catch (SQLException e) {
             e.printStackTrace();
         }

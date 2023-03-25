@@ -1,6 +1,7 @@
 package edu.sdr.dc.jdbc;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.poi.util.StringUtil;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
@@ -15,17 +16,34 @@ import java.sql.*;
 public class H2Main {
 
     private static final String H2_DRIVER = "org.h2.Driver";
-    //private static final String H2_DB_URL = "jdbc:h2:mem:testdb";
     private static final String H2_DB_URL = "jdbc:h2:file:./data/db";
     private static final String H2_DB_USER = "sa";
     private static final String H2_DB_PASSWORD = "password";
 
     public static void main(String[] args) {
-        try {
-            useH2();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+
+        //JdbcRepository.save();
+
+        System.out.println("" + createQuery("name", "AAAA", "district", "CA", "popilation"));
+
+    }
+
+    public static String createQuery(String... arg) {
+
+        String columns = "";
+        String values = "";
+        if( arg.length > 0) {
+            for(int index = 0; index < arg.length - 1; index += 2){
+                columns += arg[index] + ", ";
+                values += "'"  + arg[index + 1] + "'" + ", ";
+            }
         }
+
+        columns = columns.substring(0, columns.length() - 2);
+        values = values.substring(0, values.length() - 2);
+
+        String query = "INSERT INTO table(" + columns + ") VALUES(" + values + ")";
+        return query;
     }
 
     private static void useH2() throws ClassNotFoundException {
@@ -36,13 +54,6 @@ public class H2Main {
         Class.forName(driver);
 
         try (Connection connection = DriverManager.getConnection(url, user, password)) {
-
-            drop(connection);
-            create(connection);
-            insert(connection);
-            update(connection);
-            delete(connection);
-            read(connection);
 
         } catch (SQLException e) {
             e.printStackTrace();

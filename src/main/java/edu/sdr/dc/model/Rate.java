@@ -2,6 +2,8 @@ package edu.sdr.dc.model;
 
 import lombok.Getter;
 
+import java.util.Date;
+
 @Getter
 public class Rate {
 
@@ -10,6 +12,12 @@ public class Rate {
     private String rate;
     private String date;
     private Integer multiplier;
+
+    private Date createdDate;
+    private String createdBy;
+    private Date lastUpdatedDate;
+    private String lastUpdatedBy;
+
 
     public Rate(){}
 

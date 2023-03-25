@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
 
-public class RateRepository implements JdbcRepository<Rate> {
+public class RateSqlRepository implements JdbcRepository<Rate> {
 
     public List<Rate> findAllByDate(Connection connection, String date) {
         List<Rate> rateList = new LinkedList<>();
@@ -27,7 +27,7 @@ public class RateRepository implements JdbcRepository<Rate> {
                 String dateFromTable = rs.getString("date");
                 Integer multiplier = rs.getInt("multiplier");
 
-                rateList.add(new Rate(id, dateFromTable, new Currency(currency), rate, multiplier));
+                rateList.add(new Rate(id, dateFromTable, new Currency(), rate, multiplier));
             }
         } catch (SQLException e) {
             e.printStackTrace();

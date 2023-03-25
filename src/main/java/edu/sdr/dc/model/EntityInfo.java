@@ -1,12 +1,10 @@
 package edu.sdr.dc.model;
 
+import javax.persistence.Embeddable;
 import java.util.Date;
 
-public class Pix {
-
-    private String model;
-    private String color;
-    private Integer length;
+@Embeddable
+public class EntityInfo {
 
     private Date createdDate;
     private String createdBy;

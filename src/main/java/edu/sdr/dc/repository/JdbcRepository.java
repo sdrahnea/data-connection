@@ -1,6 +1,6 @@
 package edu.sdr.dc.repository;
 
-public interface Repository<T> {
+public interface JdbcRepository<T> {
 
     // select ...
     T findById(Integer id);
