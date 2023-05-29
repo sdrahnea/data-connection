@@ -15,12 +15,12 @@ public class MySqlMain {
     private static final String H2_DB_PASSWORD = "password";
 
     private static final String MYSQL_DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String MYSQL_DB_URL = "jdbc:mysql://localhost:3306/employee_gr_50";
+    private static final String MYSQL_DB_URL = "jdbc:mysql://localhost:3306/employee_database";
     private static final String MYSQL_DB_USER = "root";
     private static final String MYSQL_DB_PASSWORD = "root";
 
     private static final String ORACLE_DRIVER = "com.ORACLE.jdbc.Driver";
-    private static final String ORACLE_DB_URL = "jdbc:mysql://127.0.0.1:1521/employee_gr_51";
+    private static final String ORACLE_DB_URL = "jdbc:mysql://127.0.0.1:1521/database_database";
     private static final String ORACLE_DB_USER = "root";
     private static final String ORACLE_DB_PASSWORD = "root";
 
